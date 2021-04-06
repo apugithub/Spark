@@ -42,7 +42,7 @@ df1 = df1.withColumn("id", monotonically_increasing_id())
 df2 = df2.withColumn("id", monotonically_increasing_id())
 df3 = df1.join(df2, "id", "outer").drop("id")
 
-df1.coalesce(1).write.option("inferSchema","true").csv("/FileStore/tables/test1json_op", header = 'true', mode='append')
+df3.coalesce(1).write.option("inferSchema","true").csv("/FileStore/tables/test1json_op", header = 'true', mode='append')
 
 df3.show()
 df1.printSchema()
